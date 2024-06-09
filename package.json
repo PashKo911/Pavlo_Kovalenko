@@ -3,7 +3,7 @@
 	"private": true,
 	"version": "0.0.0",
 	"type": "module",
-	"homepage": "https://PashKo911.github.io/marverl_starter",
+	"homepage": "https://PashKo911.github.io/portfolio",
 	"scripts": {
 		"predeploy": "npm run build",
 		"deploy": "gh-pages -d build",
