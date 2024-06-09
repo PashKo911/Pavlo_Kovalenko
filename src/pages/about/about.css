@@ -1,0 +1,41 @@
+.section {
+}
+.container {
+}
+.about {
+}
+.section__title {
+}
+.about__container,
+.info__list,
+.stats {
+	grid-template-columns: repeat(2, 1fr);
+}
+.about__info {
+}
+.section__subtitle {
+	font-size: var(--h3-font-size);
+	font-weight: var(--weight-600);
+	margin-bottom: 20px;
+}
+.info__list {
+	row-gap: 20px;
+	margin-bottom: 32px;
+}
+
+.info__list .info__title,
+.info__list .info__description {
+	font-size: var(--small-font-size);
+}
+
+.info__list .info__description {
+	color: var(--title-color);
+	font-weight: var(--weight-600);
+}
+
+.button {
+}
+.button__icon {
+}
+.stats {
+}
