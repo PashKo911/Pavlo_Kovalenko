@@ -1,17 +1,20 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import React from 'react'
-import './App.css'
 
 import Navbar from './components/Navbar'
 import Home from './pages/home/Home'
 import About from './pages/about/About'
 import Portfolio from './pages/portfolio/Portfolio'
 import Contact from './pages/contact/Contact'
+import Themes from './components/Themes'
+
+import './App.css'
 
 function App() {
 	return (
-		<BrowserRouter>
+		<BrowserRouter basename="/Pavlo_Kovalenko">
 			<Navbar />
+			<Themes />
 			<Routes>
 				<Route index element={<Home />} />
 				<Route path="about" element={<About />} />
