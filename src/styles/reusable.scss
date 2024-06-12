@@ -1,0 +1,55 @@
+// Container ======================================================================================================================================================================================================================
+
+[class*='__container'] {
+	max-width: toRem($containerWidth);
+	margin: 0 auto;
+	padding: 0 toRem(math.div($containerPadding, 2));
+}
+
+.button {
+	display: inline-block;
+	color: var(--title-color);
+	border: toRem(1) solid var(--first-color);
+	padding: toRem(15) toRem(70) toRem(15) toRem(35);
+	border-radius: toRem(35);
+	font-family: var(--second-font);
+	font-size: var(--small-font-size);
+	font-weight: var(--weight-500);
+	position: relative;
+	overflow: hidden;
+	transition: color 0.25 ease-in-out;
+
+	@media (any-hover: hover) {
+		&:hover {
+			color: var(--text-white);
+		}
+		&:hover::before {
+			transform: translateX(0);
+		}
+	}
+
+	&::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background-color: var(--first-color);
+		transform: translateX(100%);
+		z-index: -1;
+		border-radius: toRem(35);
+		transition: transform 0.3s ease-out;
+	}
+
+	// .button__icon
+	&__icon {
+		position: absolute;
+		inset-block: toRem(-2);
+		background-color: var(--first-color);
+		right: 0;
+		width: toRem(55);
+		border-radius: 50%;
+		color: var(--text-white);
+		font-size: var(--large-font-size);
+		text-align: center;
+		line-height: toRem(60);
+	}
+}

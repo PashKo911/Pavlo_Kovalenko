@@ -7,6 +7,12 @@
 	padding: 15px;
 	box-shadow: 0 0 4px hsl(0, 0%, 80%);
 	z-index: 10;
+	transform: translateX(-100%);
+	transition: transform 0.3s;
+}
+
+.show-switcher {
+	transform: translateX(0);
 }
 
 .style__switcher,
@@ -48,4 +54,31 @@
 	background-color: var(--text-white);
 	height: 50px;
 	width: 50px;
+	font-size: var(--large-font-size);
+	cursor: pointer;
+	display: grid;
+	place-items: center;
+	box-shadow: 0 0 2px hsl(0, 0%, 80%);
+	transition: all 0.3s;
+}
+
+.show-switcher .style__switcher-toggler,
+.show-switcher .theme__toggler {
+	left: -100%;
+}
+
+.style__switcher-toggler {
+	top: 10%;
+}
+
+.theme__toggler {
+	bottom: 10%;
+}
+
+.style__switcher-close {
+	cursor: pointer;
+	font-size: var(--h2-font-size);
+	position: absolute;
+	top: 2%;
+	right: 15px;
 }
