@@ -4,6 +4,9 @@
 	min-height: 100svh;
 	display: flex;
 	align-items: center;
+	padding: toRem(70) 0;
+	padding-top: toRem(70);
+	@include adaptiveValue('padding-bottom', 70, 30);
 
 	// .home__container
 	&__container {
@@ -14,16 +17,17 @@
 
 		@media (max-width: $mobile) {
 			flex-direction: column;
-			row-gap: toRem(50);
+			@include adaptiveValue('row-gap', 50, 30);
 		}
 	}
 	// .home__img
 	&__img {
 		width: 40%;
-		min-width: toRem(210);
+		min-width: toRem(270);
 		aspect-ratio: 1;
 		object-fit: cover;
-		border: toRem(9) solid var(--first-color);
+		border: solid var(--first-color);
+		@include adaptiveValue('border-width', 9, 4);
 		border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
 		box-shadow: 0 0 8px hsla(0, 0%, 0%, 0.3);
 		// animation: border-animation 10s infinite ease-in-out;
@@ -34,6 +38,10 @@
 
 		@media (max-width: $mobile) {
 			width: 45%;
+		}
+
+		@media (max-width: toEm(375)) {
+			min-width: toRem(210);
 		}
 
 		@keyframes border-animation {
@@ -58,8 +66,10 @@
 	// .home__title
 	&__title {
 		position: relative;
-		@include adaptiveValue('font-size', 48, 32, 0, $containerWidth, 768);
+		@include adaptiveValue('font-size', 48, 34, 2, $containerWidth, 768);
+		@include adaptiveValue('font-size', 42, 22, 3, 768, 320);
 		line-height: 1.24;
+		transition: color 0.8s;
 
 		&:not(:last-child) {
 			margin-bottom: toRem(16);
@@ -77,12 +87,34 @@
 	// .home__hand
 	&__hand {
 		margin-left: toRem(10);
+		transform-origin: center bottom;
+
+		// animation: hello 0.8s infinite ease 0s;
+
+		@keyframes hello {
+			0% {
+				transform: translate(0, toRem(0));
+			}
+			10% {
+				// transform: translate(0, toRem(-20));
+			}
+			35% {
+				transform: rotate(-35deg);
+			}
+			45% {
+				transform: rotate(43deg);
+			}
+			// 100% {
+			// 	transform: translate(0, toRem(-20));
+			// }
+		}
 	}
 	// .home__description
 	&__description {
 		line-height: 1.4;
-		@include adaptiveValue('font-size', 20, 16, 0, $containerWidth, 768);
-		@include adaptiveValue('max-width', 602, 470, 0, 1920, 992);
+		@include adaptiveValue('font-size', 20, 16, 2, $containerWidth, 768);
+		@include adaptiveValue('font-size', 16, 14, 3, 768, 320);
+		@include adaptiveValue('max-width', 900, 470, 0, 1920, 992);
 
 		&:not(:last-child) {
 			margin-bottom: toRem(32);

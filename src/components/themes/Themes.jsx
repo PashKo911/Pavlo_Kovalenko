@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react'
 import { FaCog } from 'react-icons/fa'
 import { BsSun, BsMoon } from 'react-icons/bs'
 
-import { themes } from '../data'
-import ThemeItem from './ThemeItem'
+import { themes } from '../../data'
+import ThemeItem from './themeItem/ThemeItem'
 
-import './themes.css'
+import './themes.scss'
 
 const getStorageColor = () => {
 	let color = 'hsl(252, 35%, 51%)'
@@ -52,15 +52,18 @@ const Themes = () => {
 	}, [theme])
 
 	return (
-		<div>
+		<div className="style">
 			<div className={`${showSwitcher ? 'show-switcher' : ''} style__switcher`}>
-				<div className="style__switcher-toggler" onClick={() => setShowSwitcher(!showSwitcher)}>
+				<button
+					type="button"
+					className="style__switcher-toggler"
+					onClick={() => setShowSwitcher(!showSwitcher)}>
 					<FaCog />
-				</div>
+				</button>
 
-				<div className="theme__toggler" onClick={toggleTheme}>
+				<button type="button" className="style__theme-toggler" onClick={toggleTheme}>
 					{theme === 'light-theme' ? <BsMoon /> : <BsSun />}
-				</div>
+				</button>
 
 				<h3 className="style__switcher-title">Style Switcher</h3>
 				<div className="style__switcher-items">

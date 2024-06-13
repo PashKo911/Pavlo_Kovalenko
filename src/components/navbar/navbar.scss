@@ -1,0 +1,208 @@
+@import '../../styles/global.scss';
+
+.nav {
+	@media (min-width: $tablet) {
+		position: fixed;
+		inset-block: 0;
+		right: toRem(30);
+		display: flex;
+		align-items: center;
+		z-index: 50;
+	}
+	// .nav__menu
+	&__menu {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: var(--container-color);
+		position: fixed;
+		inset-block: 0;
+		left: -100%;
+		width: 100%;
+		padding: toRem(60) toRem(30);
+		transition: left 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+		z-index: 50;
+		overflow: auto;
+
+		.nav-open & {
+			left: 0;
+		}
+
+		@media (min-width: $tablet) {
+			all: unset;
+		}
+	}
+	// .nav__list
+	&__list {
+	}
+	// .nav__item
+	&__item {
+		@media (min-width: $tablet) {
+			&:not(:last-child) {
+				margin-bottom: toRem(20);
+			}
+		}
+	}
+	// .nav__link
+	&__link {
+		display: flex;
+		align-items: center;
+		column-gap: toRem(24);
+		border-bottom: toRem(1) solid var(--border-color);
+		padding-block: toRem(24);
+
+		@media (min-width: $tablet) {
+			padding: 0;
+			border-bottom: none;
+			background-color: var(--container-color);
+			width: toRem(50);
+			height: toRem(50);
+			border-radius: 50%;
+			position: relative;
+			transition: background-color 0.3s;
+
+			&.active {
+				background-color: var(--first-color);
+			}
+		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: var(--first-color);
+			}
+		}
+
+		.dark-theme & {
+			color: var(--title-color);
+			border-color: hsl(0, 0%, 20%);
+			font-size: toRem(24);
+		}
+	}
+	// .nav__name
+	&__name {
+		font-weight: var(--weight-500);
+		font-size: toRem(24);
+		color: var(--title-color);
+
+		@media (min-width: $tablet) {
+			position: absolute;
+			top: 0;
+			right: 0;
+			background-color: var(--first-color);
+			height: 100%;
+			line-height: toRem(50);
+			padding-inline: toRem(30) toRem(25);
+			border-radius: toRem(30);
+			font-size: toRem(15);
+			color: var(--text-white);
+			opacity: 0;
+			visibility: hidden;
+			z-index: -1;
+			transition: all 0.3s ease;
+
+			@media (any-hover: hover) {
+				.nav__link:hover & {
+					right: toRem(27);
+					color: var(--text-white);
+					opacity: 1;
+					visibility: visible;
+					border-radius: toRem(30) 0 0 toRem(30);
+				}
+			}
+		}
+
+		.active & {
+			color: var(--first-color);
+		}
+	}
+	// .nav__icon
+	&__icon {
+		font-weight: var(--weight-500);
+		font-size: toRem(24);
+		color: var(--title-color);
+		transition: color 0.8s;
+
+		.active & {
+			color: var(--first-color);
+		}
+
+		@media (any-hover: hover) {
+			.nav__link:hover & {
+				color: var(--text-white);
+			}
+		}
+
+		@media (min-width: $tablet) {
+			font-size: toRem(20);
+			margin-inline: auto;
+
+			.active & {
+				color: var(--text-white);
+			}
+		}
+	}
+}
+
+.icon-menu {
+	display: none;
+
+	@media (max-width: $tablet) {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: fixed;
+		top: toRem(20);
+		right: toRem(20);
+		width: toRem(44);
+		height: toRem(44);
+		background-color: var(--container-color);
+		border-radius: toRem(5);
+		z-index: 50;
+
+		@media (any-hover: none) {
+			cursor: default;
+		}
+
+		.button__inner {
+			position: relative;
+			width: toRem(30);
+			height: toRem(30);
+			transition: all 0.3s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+
+			.nav-open & {
+				transform: rotate(90deg);
+			}
+
+			span,
+			&::before {
+				content: '';
+				position: absolute;
+				width: 100%;
+				left: 0;
+				height: toRem(2);
+				background-color: var(--first-color);
+				border-radius: toRem(3);
+				transition: all 0.3s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+				transition-delay: 0.2s;
+			}
+			&::before {
+				top: 30%;
+			}
+
+			span {
+				bottom: 30%;
+			}
+			.nav-open & {
+				span {
+					transform: rotate(45deg);
+					bottom: calc(50% - toRem(1));
+				}
+
+				&::before {
+					transform: rotate(-45deg);
+					top: calc(50% - toRem(1));
+				}
+			}
+		}
+	}
+}
