@@ -8,7 +8,7 @@ import Portfolio from './pages/portfolio/Portfolio'
 import Contact from './pages/contact/Contact'
 import Themes from './components/themes/Themes'
 
-// import './App.css'
+import './App.scss'
 
 function App() {
 	return (

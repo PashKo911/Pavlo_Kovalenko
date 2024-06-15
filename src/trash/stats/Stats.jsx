@@ -1,6 +1,7 @@
 import React from 'react'
-import { stats } from '../data'
 import parse from 'html-react-parser'
+import { stats } from '../../data'
+import './stats.scss'
 
 const Stats = () => {
 	return (

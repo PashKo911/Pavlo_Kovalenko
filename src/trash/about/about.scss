@@ -1,0 +1,12 @@
+// @import '../../styles/global.scss';
+
+.about {
+	padding-top: toRem(70);
+
+	// .about__container
+	&__container {
+		& > *:not(:last-child) {
+			margin-bottom: toRem(70);
+		}
+	}
+}

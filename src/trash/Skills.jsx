@@ -8,8 +8,8 @@ const Skills = () => {
 		<>
 			{skills.map(({ title, percentage }, index) => {
 				return (
-					<div className="progress__box" key={index}>
-						<div className="progress__circle">
+					<div className="skills__box" key={index}>
+						<div className="skills__circle">
 							<CircularProgressbar strokeWidth={7.5} text={`${percentage}%`} value={percentage} />
 						</div>
 						<h3 className="skills__title">{title}</h3>

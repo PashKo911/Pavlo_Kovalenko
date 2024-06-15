@@ -1,0 +1,39 @@
+@import '../../styles/global.scss';
+
+.stats {
+	grid-template-columns: repeat(2, 1fr);
+	align-items: flex-start;
+	// .stats__box
+	&__box {
+		border: toRem(1) solid var(--border-color);
+		padding: toRem(20) toRem(30) toRem(25);
+		border-radius: toRem(5);
+	}
+	// .stats__no
+	&__no {
+		color: var(--first-color);
+		font-size: toRem(50);
+		line-height: 1.2;
+	}
+	// .stats__title
+	&__title {
+		font-size: toRem(15);
+		line-height: 1.6;
+		padding-left: toRem(45);
+		position: relative;
+
+		span {
+			color: var(--first-color);
+		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 25%;
+			width: toRem(30);
+			height: toRem(1);
+			background-color: var(--text-color);
+		}
+	}
+}

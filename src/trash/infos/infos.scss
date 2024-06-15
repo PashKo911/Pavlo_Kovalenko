@@ -1,0 +1,35 @@
+@import '../../styles/global';
+
+.infos {
+	// .infos__body
+	&__body {
+		grid-template-columns: repeat(2, 1fr);
+		align-items: flex-start;
+	}
+	// .infos__content
+	&__content {
+	}
+	// .infos__list
+	&__list {
+		grid-template-columns: repeat(2, 1fr);
+		align-items: flex-start;
+		row-gap: toRem(20);
+		margin-bottom: toRem(32);
+	}
+	// .infos__item
+	&__item {
+	}
+	// .infos__title
+	&__title {
+		font-size: toRem(15);
+	}
+	// .infos__description
+	&__description {
+		@extend .infos__title;
+		color: var(--title-color);
+		font-weight: var(--weight-600);
+	}
+}
+
+.stats {
+}
